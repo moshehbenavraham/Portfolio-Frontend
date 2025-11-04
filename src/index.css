@@ -1,8 +1,6 @@
-/* Tailwind Directives */
-/* These lines import Tailwind CSS's base styles, components, and utilities */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind CSS v4 Imports */
+/* v4 uses @import instead of @tailwind directives */
+@import 'tailwindcss';
 
 /* Custom styles */
 /* @layer is used to add custom styles to Tailwind's layers */
@@ -67,7 +65,7 @@
 
   /* Primary button styles */
   .btn-primary {
-    @apply bg-[var(--primary-color)] text-white hover:bg-opacity-90 hover:-translate-y-0.5 hover:shadow-md;
+    @apply bg-[var(--primary-color)] text-white hover:opacity-90 hover:-translate-y-0.5 hover:shadow-md;
   }
 
   /* Secondary button styles */
@@ -200,7 +198,7 @@
 
   /* Adjust the primary button style for dark mode */
   .btn-primary {
-    @apply bg-[var(--primary-color)] text-white hover:bg-opacity-90;
+    @apply bg-[var(--primary-color)] text-white hover:opacity-90;
     /* This keeps the button visible in dark mode and adds a hover effect */
   }
 }
@@ -231,7 +229,7 @@ nav ul li {
 }
 
 nav ul li a {
-  @apply font-medium py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-white hover:bg-opacity-10;
+  @apply font-medium py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-white/10;
   /* This styles navigation links with padding, rounded corners, and a hover effect */
 }
 
