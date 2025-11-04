@@ -4,9 +4,8 @@
 export default {
   // The 'content' array tells Tailwind which files to scan for classes to include in your CSS
   content: [
-    "./index.html",  // Scans the main HTML file
-    "./*.js",        // Scans all JavaScript files in the root directory
-    "./*.css",       // Scans all CSS files in the root directory
+    './index.html', // Scans the main HTML file
+    './src/**/*.{js,ts,jsx,tsx}', // Scans all JS/TS files in src directory
   ],
 
   // The 'theme' section is where you customize Tailwind's default design system
@@ -17,6 +16,6 @@ export default {
 
   // The 'plugins' array lets you add third-party plugins to extend Tailwind's functionality
   plugins: [],
-}
+};
 
 // EoF

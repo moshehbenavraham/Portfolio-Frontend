@@ -15,7 +15,7 @@
   :root {
     --primary-color: #646cff; /* Primary color variable */
     --secondary-color: #535bf2; /* Secondary color variable */
-    
+
     /*
      * The text-size-adjust property allows the text to resize (or not) when the user zooms in or out
      * on a mobile device. The value 100% means no automatic resizing will happen.
@@ -35,14 +35,15 @@
      * meaning children will stack vertically.
      */
     @apply min-h-screen flex flex-col;
-    
+
     /* Apply the same text-size-adjust to the body to ensure consistent text resizing behavior */
     -webkit-text-size-adjust: 100%; /* Older browsers compatibility */
     text-size-adjust: 100%; /* Standard property for modern browsers */
   }
 
   /* Styles for anchor tags (a) and buttons (button) */
-  a, button {
+  a,
+  button {
     /*
      * -webkit-tap-highlight-color is a property specific to WebKit browsers (like Safari and Chrome).
      * It prevents the blue highlight that appears when you tap a link or button on a touch device.
@@ -140,47 +141,46 @@
     @apply flex flex-col items-center mt-8;
   }
 
-/* This code controls how the mobile menu looks and behaves on smaller screens */
+  /* This code controls how the mobile menu looks and behaves on smaller screens */
 
-/* @media is a special rule that applies styles only when certain conditions are met */
-/* In this case, these styles apply when the screen width is 768 pixels or less */
-@media (max-width: 768px) {
-  /* This targets the unordered list (ul) inside the navigation (nav) */
-  nav ul {
-    /* Hide the menu by default on mobile */
-    display: none;
-    
-    /* Arrange menu items in a column instead of a row */
-    flex-direction: column;
-    
-    /* Position the menu absolutely, right below the header */
-    position: absolute;
-    top: 100%;  /* This puts it right under the header */
-    left: 0;    /* Aligns it to the left edge of the screen */
-    
-    /* Make the menu take up the full width of the screen */
-    width: 100%;
-    
-    /* Set the background color of the menu */
-    background-color: #1a202c; /* This should match your header background color */
-    
-    /* Add some space inside the menu */
-    padding: 1rem;  /* 1rem is a unit of measurement, usually equal to 16 pixels */
+  /* @media is a special rule that applies styles only when certain conditions are met */
+  /* In this case, these styles apply when the screen width is 768 pixels or less */
+  @media (max-width: 768px) {
+    /* This targets the unordered list (ul) inside the navigation (nav) */
+    nav ul {
+      /* Hide the menu by default on mobile */
+      display: none;
+
+      /* Arrange menu items in a column instead of a row */
+      flex-direction: column;
+
+      /* Position the menu absolutely, right below the header */
+      position: absolute;
+      top: 100%; /* This puts it right under the header */
+      left: 0; /* Aligns it to the left edge of the screen */
+
+      /* Make the menu take up the full width of the screen */
+      width: 100%;
+
+      /* Set the background color of the menu */
+      background-color: #1a202c; /* This should match your header background color */
+
+      /* Add some space inside the menu */
+      padding: 1rem; /* 1rem is a unit of measurement, usually equal to 16 pixels */
+    }
+
+    /* This style is applied when the 'flex' class is added to the menu */
+    /* It's used to show the menu when the hamburger icon is clicked */
+    nav ul.flex {
+      display: flex; /* This makes the menu visible */
+    }
+
+    /* This targets each list item in the navigation menu */
+    nav ul li {
+      /* Add some vertical space between menu items */
+      margin: 0.5rem 0; /* 0.5rem top and bottom, 0 left and right */
+    }
   }
-
-  /* This style is applied when the 'flex' class is added to the menu */
-  /* It's used to show the menu when the hamburger icon is clicked */
-  nav ul.flex {
-    display: flex;  /* This makes the menu visible */
-  }
-
-  /* This targets each list item in the navigation menu */
-  nav ul li {
-    /* Add some vertical space between menu items */
-    margin: 0.5rem 0;  /* 0.5rem top and bottom, 0 left and right */
-  }
-}
-
 }
 
 /* Dark mode adjustments */

@@ -12,19 +12,30 @@ This project aims to create an interactive portfolio website to showcase front-e
 
 ## Project Structure
 ```
-my-portfolio/
-│
-├── index.html
-├── src/
-│   ├── index.css
-│   └── main.js
-├── public/
-│   └── (static assets)
+Portfolio-Frontend/
+├── index.html              # Main HTML file
+├── src/                    # Source files
+│   ├── index.css          # Global styles + Tailwind
+│   ├── main.js            # Application logic
+│   └── assets/            # Bundled assets
+├── public/                 # Static assets
+│   ├── profile.png
+│   ├── project1.webp
+│   └── project2.webp
+├── docs/                   # 📚 Comprehensive documentation
+│   ├── README.md          # Documentation index
+│   ├── ARCHITECTURE.md    # Technical architecture
+│   ├── API.md             # API documentation
+│   ├── CONTRIBUTING.md    # Contribution guide
+│   ├── DEPLOYMENT.md      # Deployment instructions
+│   ├── TROUBLESHOOTING.md # Common issues & solutions
+│   ├── CHANGELOG.md       # Version history
+│   └── CODE_OF_CONDUCT.md # Community guidelines
 ├── package.json
 ├── vite.config.js
 ├── tailwind.config.js
 ├── postcss.config.js
-├── .eslintrc.json
+├── eslint.config.js
 └── .prettierrc
 ```
 
@@ -98,8 +109,32 @@ my-portfolio/
 6. Optimize performance and run Lighthouse audits
 7. Deploy the website (consider using GitHub Pages or Netlify for free hosting)
 
+## Documentation
+
+Comprehensive documentation is available in the [`/docs`](./docs) directory:
+
+- **[Getting Started](./README.md)** - This file - project overview and setup
+- **[Documentation Index](./docs/README.md)** - Complete documentation guide
+- **[Architecture](./docs/ARCHITECTURE.md)** - Technical architecture and design
+- **[API Reference](./docs/API.md)** - External API integrations
+- **[Contributing Guide](./docs/CONTRIBUTING.md)** - How to contribute
+- **[Deployment Guide](./docs/DEPLOYMENT.md)** - Deploy to production
+- **[Troubleshooting](./docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Changelog](./docs/CHANGELOG.md)** - Version history
+- **[Code of Conduct](./docs/CODE_OF_CONDUCT.md)** - Community guidelines
+
 ## Contributing
-This is a personal portfolio project, but suggestions and feedback are welcome. Please open an issue or submit a pull request if you have any improvements to propose.
+This is a personal portfolio project, but suggestions and feedback are welcome! 
+
+Before contributing, please:
+1. Read the [Code of Conduct](./docs/CODE_OF_CONDUCT.md)
+2. Review the [Contributing Guide](./docs/CONTRIBUTING.md)
+3. Check existing issues and pull requests
+
+To contribute:
+- Open an issue to discuss major changes
+- Submit a pull request for improvements
+- Follow the coding standards outlined in the documentation
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -141,7 +176,7 @@ The `package-lock.json` file is an automatically generated file that provides a 
    - The file distinguishes between dependencies needed for development and those required for production.
 
 9. Version Ranges:
-   - While the project's `package.json` might specify version ranges (e.g., "^3.12.5" for gsap), the lock file pins down exact versions to ensure consistency across different environments.
+   - While the project's `package.json` might specify version ranges (e.g., "^3.13.0" for gsap), the lock file pins down exact versions to ensure consistency across different environments.
 
 10. Funding:
     - Some packages include "funding" information, providing links where users can financially support the package maintainers.
@@ -164,16 +199,26 @@ Certainly! I'll provide a comprehensive description of the `package.json` file y
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
-    "tailwindcss": "^3.4.4",
-    "vite": "^5.3.1"
+    "@eslint/js": "^9.39.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.18",
+    "vite": "^7.1.12"
   },
   "dependencies": {
-    "gsap": "^3.12.5"
+    "formik": "^2.4.6",
+    "gsap": "^3.13.0",
+    "yup": "^1.7.1"
   }
 }
 ```
@@ -191,75 +236,94 @@ Here's a breakdown of this `package.json` file:
      - `"dev"`: "vite" - Starts the development server using Vite.
      - `"build"`: "vite build" - Builds the project for production using Vite.
      - `"preview"`: "vite preview" - Locally previews the production build.
+     - `"lint"`: "eslint ." - Checks for linting errors in all files.
+     - `"lint:fix"`: "eslint . --fix" - Automatically fixes linting errors where possible.
+     - `"format"`: "prettier --write ..." - Formats code using Prettier.
 
 3. DevDependencies:
    - These are dependencies used only for development and building:
-     - `"autoprefixer"`: "^10.4.19" - A PostCSS plugin to parse CSS and add vendor prefixes automatically.
-     - `"postcss"`: "^8.4.39" - A tool for transforming CSS with JavaScript.
-     - `"tailwindcss"`: "^3.4.4" - A utility-first CSS framework.
-     - `"vite"`: "^5.3.1" - A build tool that aims to provide a faster and leaner development experience for modern web projects.
+     - `"@eslint/js"`: "^9.39.1" - ESLint's recommended JavaScript rules.
+     - `"autoprefixer"`: "^10.4.21" - A PostCSS plugin to parse CSS and add vendor prefixes automatically.
+     - `"eslint"`: "^9.39.1" - JavaScript linting tool for code quality.
+     - `"eslint-config-prettier"`: "^10.1.8" - Disables ESLint rules that conflict with Prettier.
+     - `"eslint-plugin-prettier"`: "^5.5.4" - Runs Prettier as an ESLint rule.
+     - `"postcss"`: "^8.5.6" - A tool for transforming CSS with JavaScript.
+     - `"prettier"`: "^3.6.2" - Opinionated code formatter.
+     - `"tailwindcss"`: "^3.4.18" - A utility-first CSS framework.
+     - `"vite"`: "^7.1.12" - A build tool that aims to provide a faster and leaner development experience for modern web projects.
 
 4. Dependencies:
    - These are runtime dependencies required for the application to function:
-     - `"gsap"`: "^3.12.5" - GreenSock Animation Platform, a popular JavaScript animation library.
+     - `"formik"`: "^2.4.6" - Form state management library.
+     - `"gsap"`: "^3.13.0" - GreenSock Animation Platform, a popular JavaScript animation library.
+     - `"yup"`: "^1.7.1" - Schema validation library for form validation.
 
 5. Version Notation:
-   - The `^` before version numbers (e.g., `"^3.12.5"`) means that npm can install later minor or patch versions, but not major versions. This allows for bug fixes and non-breaking changes.
+   - The `^` before version numbers (e.g., `"^3.13.0"`) means that npm can install later minor or patch versions, but not major versions. This allows for bug fixes and non-breaking changes.
 
 This `package.json` file describes a project that appears to be a personal portfolio website. It uses Vite as the build tool and development server, incorporates Tailwind CSS for styling, and includes GSAP for animations. The project is set up to use modern JavaScript features (ES modules) and is configured for a development workflow with separate scripts for development, building, and previewing the production build.
 
-## File: .eslintrc.json
+## File: eslint.config.js
 
-# ESLint Configuration (.eslintrc.json)
+# ESLint Configuration (eslint.config.js)
 
-The `.eslintrc.json` file is a configuration file for ESLint, a popular JavaScript linting tool. It defines the rules and settings that ESLint uses to analyze your code for potential errors, style violations, and bad practices. Here's a breakdown of each section in our `.eslintrc.json` file:
+The `eslint.config.js` file is a configuration file for ESLint 9+, which uses the new flat config format. It defines the rules and settings that ESLint uses to analyze your code for potential errors, style violations, and bad practices. Here's a breakdown of the configuration:
 
-```json
-{
-  "env": {
-    "browser": true,
-    "es2021": true
+```javascript
+import js from '@eslint/js';
+import prettierConfig from 'eslint-config-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
+
+export default [
+  {
+    files: ['**/*.{js,jsx,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 2021,
+      sourceType: 'module',
+      globals: {
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        console: 'readonly',
+        globalThis: 'readonly',
+        Promise: 'readonly',
+      },
+    },
+    plugins: {
+      prettier: prettierPlugin,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...prettierConfig.rules,
+      'prettier/prettier': 'error',
+    },
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:prettier/recommended"
-  ],
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
+  {
+    ignores: ['dist/**', 'node_modules/**', 'package-lock.json'],
   },
-  "rules": {
-  }
-}
+];
 ```
 
-## Environment (env)
+## Key Sections
 
-- `"browser": true`: This tells ESLint that your code is intended to run in a browser environment. It enables browser-specific global variables and functions.
-- `"es2021": true`: This enables ES2021 global variables and automatically sets the ECMAScript version to 12.
+### Files
+Specifies that the configuration applies to all JavaScript file types (`.js`, `.jsx`, `.mjs`, `.cjs`).
 
-## Extends
+### Language Options
+- `ecmaVersion: 2021`: Supports ECMAScript 2021 syntax
+- `sourceType: 'module'`: Uses ES modules (import/export syntax)
+- `globals`: Defines browser and ES2021 global variables as read-only
 
-- `"eslint:recommended"`: This applies a set of core rules recommended by ESLint. These rules catch common problems and errors in JavaScript code.
-- `"plugin:prettier/recommended"`: This enables the integration of Prettier with ESLint. It turns off all ESLint rules that might conflict with Prettier and enables the prettier plugin.
+### Plugins
+Integrates the Prettier plugin for code formatting within ESLint.
 
-## Parser Options
+### Rules
+- Applies ESLint's recommended rules
+- Applies Prettier's configuration to avoid conflicts
+- Treats Prettier formatting issues as ESLint errors
 
-- `"ecmaVersion": 12`: This specifies that the code should be parsed according to ECMAScript 2021 syntax.
-- `"sourceType": "module"`: This indicates that your code uses ECMAScript modules (import/export syntax).
-
-## Rules
-
-The `"rules"` section is currently empty, allowing you to add custom rules or override existing ones as needed. For example, you could add:
-
-```json
-"rules": {
-  "no-console": "warn",
-  "indent": ["error", 2]
-}
-```
-
-This would warn about `console.log` statements and enforce 2-space indentation.
+### Ignores
+Excludes `dist/`, `node_modules/`, and `package-lock.json` from linting.
 
 By using this ESLint configuration, your project ensures:
 
@@ -283,7 +347,7 @@ The `.prettierrc` file is a configuration file for Prettier, an opinionated code
   "printWidth": 100,
   "singleQuote": true,
   "trailingComma": "es5",
-  "jsxBracketSameLine": true
+  "bracketSameLine": true
 }
 ```
 
@@ -316,8 +380,9 @@ The `.prettierrc` file is a configuration file for Prettier, an opinionated code
      };
      ```
 
-6. `"jsxBracketSameLine": true`
+6. `"bracketSameLine": true`
    - Puts the `>` of a multi-line JSX element at the end of the last line instead of alone on the next line.
+   - Note: This replaces the deprecated `jsxBracketSameLine` option.
    - Example:
      ```jsx
      <button
