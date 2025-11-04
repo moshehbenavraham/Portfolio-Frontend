@@ -19,6 +19,62 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 2025-11-05
+
+### Added
+- GitHub Actions workflow for automated deployment to GitHub Pages
+- `.nojekyll` file to prevent Jekyll processing on GitHub Pages
+- GitHub Pages configuration in vite.config.js with base path
+- Proper DOMContentLoaded wrapper for all DOM-dependent code
+- Null checks throughout JavaScript for better error handling
+- `for` attributes on form labels for improved accessibility
+- `required` attributes on form inputs
+- Hover effects on form submit button
+
+### Changed
+- Removed unused Formik dependency (15 packages removed, reducing bundle size)
+- Removed unused Vite/JavaScript logo imports and injection code
+- Removed commented counter.js import
+- Removed duplicate static form from HTML (now fully JavaScript-generated)
+- Form validation now uses proper preventDefault logic (only prevents on errors)
+- Form inputs now use `.trim()` for better validation
+- Improved form label styling with `block font-medium` classes
+- Enhanced profile image alt text: "Professional headshot of Max Gibson, AI & Web Developer"
+- Changed project "Learn More" buttons to "Get in Touch" linking to #contact
+- Updated error message styling with `text-sm mt-1` for better visibility
+
+### Fixed
+- **Critical**: Fixed broken form submission by adding FormSpree action URL to JavaScript-generated form
+- **Critical**: Fixed form validation logic preventing successful submissions
+- Fixed timing issues by wrapping code in DOMContentLoaded event listener
+- Fixed smooth scrolling setup to run after DOM is ready
+- Fixed mobile menu setup with proper null checks
+- Fixed accessibility issues:
+  - Added proper `for` attributes to form labels
+  - Improved alt text on images
+  - Fixed broken project links (changed from `#` to `#contact`)
+- Fixed Prettier formatting issues in mobile menu code
+
+### Removed
+- Formik dependency (was installed but never used)
+- Unused Vite and JavaScript logo imports (main.js lines 1-26)
+- Commented counter.js code
+- Duplicate static form from index.html
+
+### Security
+- Added input sanitization with `.trim()` on all form values
+- Improved error handling with null checks throughout codebase
+- All code passes ESLint and Prettier checks
+- Zero npm audit vulnerabilities
+- Build successful with no errors
+
+### Deployment
+- Configured for GitHub Pages deployment at: https://moshehbenavraham.github.io/Portfolio-Frontend/
+- Automated deployment via GitHub Actions on push to main branch
+- Production build optimized: 610ms build time, assets properly prefixed
+
+---
+
 ## [0.3.0] - 2025-11-04
 
 ### Added
