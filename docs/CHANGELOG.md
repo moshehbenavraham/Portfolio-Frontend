@@ -19,6 +19,52 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2025-11-04
+
+### Added
+- Custom favicon.svg with MG initials and code brackets
+- Blue-to-purple gradient professional design
+- Comprehensive documentation suite in `/docs`:
+  - Documentation index (docs/README.md)
+  - Technical architecture guide (docs/ARCHITECTURE.md)
+  - API integration documentation (docs/API.md)
+  - Contribution guidelines (docs/CONTRIBUTING.md)
+  - Deployment handbook for 5 platforms (docs/DEPLOYMENT.md)
+  - Troubleshooting guide (docs/TROUBLESHOOTING.md)
+  - Code of Conduct (docs/CODE_OF_CONDUCT.md)
+
+### Changed
+- **MAJOR**: Upgraded Tailwind CSS from v3.4.18 to v4.1.16
+- Updated all dependencies to latest versions:
+  - Vite 7.1.12 (was 5.3.3)
+  - ESLint 9.39.1 with flat config (was 8.57.1 with .eslintrc.json)
+  - Prettier 3.6.2
+  - Autoprefixer 10.4.21
+  - PostCSS 8.5.6
+  - GSAP 3.13.0
+  - Formik 2.4.6
+  - Yup 1.7.1
+- Migrated to ESLint 9 flat config format (eslint.config.js)
+- Updated PostCSS config for Tailwind v4 (@tailwindcss/postcss plugin)
+- Updated CSS syntax from @tailwind directives to @import 'tailwindcss'
+- Fixed Prettier config (bracketSameLine replaces deprecated jsxBracketSameLine)
+- Reorganized project structure (moved files to /src/)
+- Updated all documentation with accurate version numbers
+
+### Fixed
+- Tailwind v4 breaking changes:
+  - Replaced bg-opacity-* utilities with opacity-* or /opacity syntax
+  - Updated all deprecated utility classes to v4 compatible versions
+- Documentation version mismatches across all files
+- ESLint configuration references (updated to flat config format)
+- Missing favicon file
+
+### Security
+- Zero npm audit vulnerabilities
+- All dependencies updated to latest secure versions
+
+---
+
 ## [0.2.0] - 2024-11-XX
 
 ### Added
