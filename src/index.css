@@ -1,242 +1,430 @@
 /* Tailwind CSS v4 Imports */
-/* v4 uses @import instead of @tailwind directives */
 @import 'tailwindcss';
 
-/* Custom styles */
-/* @layer is used to add custom styles to Tailwind's layers */
-@layer base {
-  /* 
-   * :root defines CSS variables (custom properties) that can be used throughout the stylesheet.
-   * This is a good place to define global variables like colors or font sizes that can be reused
-   * across your entire CSS file.
-   */
-  :root {
-    --primary-color: #646cff; /* Primary color variable */
-    --secondary-color: #535bf2; /* Secondary color variable */
+/* Tell Tailwind where to scan for classes */
+@source "../index.html";
+@source "./**/*.{js,ts,jsx,tsx}";
 
-    /*
-     * The text-size-adjust property allows the text to resize (or not) when the user zooms in or out
-     * on a mobile device. The value 100% means no automatic resizing will happen.
-     * The -webkit-text-size-adjust is the older version for WebKit browsers (e.g., older versions of Safari).
-     * text-size-adjust is the standard property for modern browsers.
-     */
-    -webkit-text-size-adjust: 100%; /* Older browsers compatibility */
-    text-size-adjust: 100%; /* Standard property for modern browsers */
-  }
+@plugin "tailwindcss-animate";
 
-  /* Styles for the body element */
-  body {
-    /*
-     * @apply is a Tailwind directive that lets you use Tailwind utility classes in custom CSS.
-     * min-h-screen makes the body element at least as tall as the screen.
-     * flex enables flexbox on the body, and flex-col sets the direction to column,
-     * meaning children will stack vertically.
-     */
-    @apply min-h-screen flex flex-col;
+@custom-variant dark (&:is(.dark *));
 
-    /* Apply the same text-size-adjust to the body to ensure consistent text resizing behavior */
-    -webkit-text-size-adjust: 100%; /* Older browsers compatibility */
-    text-size-adjust: 100%; /* Standard property for modern browsers */
-  }
-
-  /* Styles for anchor tags (a) and buttons (button) */
-  a,
-  button {
-    /*
-     * -webkit-tap-highlight-color is a property specific to WebKit browsers (like Safari and Chrome).
-     * It prevents the blue highlight that appears when you tap a link or button on a touch device.
-     * Setting it to transparent makes the highlight invisible, providing a cleaner experience on mobile.
-     */
-    -webkit-tap-highlight-color: transparent;
-  }
+/* shadcn/ui theme configuration */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Component styles */
-@layer components {
-  /* .container class for layout control */
-  .container {
-    @apply w-full max-w-6xl mx-auto px-4;
-  }
-
-  /* Base button styles */
-  .btn {
-    @apply inline-block py-2 px-4 rounded font-medium uppercase transition duration-300 ease-in-out;
-  }
-
-  /* Primary button styles */
-  .btn-primary {
-    @apply bg-[var(--primary-color)] text-white hover:opacity-90 hover:-translate-y-0.5 hover:shadow-md;
-  }
-
-  /* Secondary button styles */
-  .btn-secondary {
-    @apply bg-transparent text-white border-2 border-white hover:bg-white hover:text-[var(--primary-color)] hover:-translate-y-0.5 hover:shadow-md;
-  }
+/* CSS Variables for custom colors */
+:root {
+  --primary-color: #646cff;
+  --secondary-color: #535bf2;
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-/* Utility classes for specific elements and sections */
-@layer utilities {
-  /* Hero section styles */
-  .hero {
-    @apply text-center py-24 bg-[var(--primary-color)] text-white;
-  }
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
 
-  .hero h1 {
-    @apply text-5xl mb-2;
-  }
+/* Base styles */
+* {
+  border-color: var(--border);
+}
 
-  .hero h2 {
-    @apply text-3xl mb-4;
-  }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
-  /* Profile picture styles */
-  .profile-pic {
-    @apply w-48 h-48 rounded-full mx-auto my-8 border-4 border-white shadow-lg;
-  }
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
 
-  /* About section styles */
-  .about-details {
-    @apply flex flex-wrap justify-between mt-8;
-  }
+/* Container component - using native CSS */
+.container {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
-  .detail {
-    @apply flex-1 min-w-[calc(33.333%-2rem)] m-4 p-6 bg-white rounded-lg shadow-md transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800;
-  }
+/* Button styles - using native CSS */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
 
-  /* Skills section styles */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--primary-color);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* Hero section styles */
+.hero {
+  text-align: center;
+  padding: 6rem 0;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 1.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Profile picture styles */
+.profile-pic {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 9999px;
+  margin: 2rem auto;
+  border: 4px solid white;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+/* About section styles */
+.about-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.detail {
+  flex: 1;
+  min-width: calc(33.333% - 2rem);
+  margin: 1rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.detail:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.dark .detail {
+  background-color: #1f2937;
+}
+
+/* Skills section styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
   .skills-grid {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
-  .skill {
-    @apply text-center p-8 bg-white rounded-lg shadow-md transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg dark:bg-gray-800;
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
 
-  /* Project section styles */
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.skill {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.skill:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.dark .skill {
+  background-color: #1f2937;
+}
+
+/* Project section styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
   .project-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8;
-  }
-
-  .project {
-    @apply bg-white rounded-lg overflow-hidden shadow-md transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg flex flex-col dark:bg-gray-800;
-  }
-
-  .project-image {
-    @apply w-full h-48 object-cover;
-  }
-
-  .project-content {
-    @apply p-4 flex-grow flex flex-col;
-  }
-
-  .project .btn {
-    @apply mt-auto;
-    /* This ensures the button stays at the bottom */
-  }
-
-  /* Contact section styles */
-  .contact-info {
-    @apply flex flex-col items-center mt-8;
-  }
-
-  /* This code controls how the mobile menu looks and behaves on smaller screens */
-
-  /* @media is a special rule that applies styles only when certain conditions are met */
-  /* In this case, these styles apply when the screen width is 768 pixels or less */
-  @media (max-width: 768px) {
-    /* This targets the unordered list (ul) inside the navigation (nav) */
-    nav ul {
-      /* Hide the menu by default on mobile */
-      display: none;
-
-      /* Arrange menu items in a column instead of a row */
-      flex-direction: column;
-
-      /* Position the menu absolutely, right below the header */
-      position: absolute;
-      top: 100%; /* This puts it right under the header */
-      left: 0; /* Aligns it to the left edge of the screen */
-
-      /* Make the menu take up the full width of the screen */
-      width: 100%;
-
-      /* Set the background color of the menu */
-      background-color: #1a202c; /* This should match your header background color */
-
-      /* Add some space inside the menu */
-      padding: 1rem; /* 1rem is a unit of measurement, usually equal to 16 pixels */
-    }
-
-    /* This style is applied when the 'flex' class is added to the menu */
-    /* It's used to show the menu when the hamburger icon is clicked */
-    nav ul.flex {
-      display: flex; /* This makes the menu visible */
-    }
-
-    /* This targets each list item in the navigation menu */
-    nav ul li {
-      /* Add some vertical space between menu items */
-      margin: 0.5rem 0; /* 0.5rem top and bottom, 0 left and right */
-    }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* Dark mode adjustments */
-/* This media query applies styles when the user's system is set to dark mode */
-@media (prefers-color-scheme: dark) {
-  /* Redefine CSS variables for dark mode */
-  :root {
-    --background-color: #242424; /* Dark background color */
-    --text-color: rgba(255, 255, 255, 0.87); /* Light text color with slight transparency */
-  }
-
-  /* Apply dark mode styles to the body */
-  body {
-    @apply bg-[var(--background-color)] text-[var(--text-color)];
-    /* This sets the background and text color using the variables defined above */
-  }
-
-  /* Adjust the primary button style for dark mode */
-  .btn-primary {
-    @apply bg-[var(--primary-color)] text-white hover:opacity-90;
-    /* This keeps the button visible in dark mode and adds a hover effect */
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Styles that don't have direct Tailwind equivalents */
-/* These styles are for icons within detail and skill elements */
+.project {
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.project:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.dark .project {
+  background-color: #1f2937;
+}
+
+.project-image {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project .btn {
+  margin-top: auto;
+}
+
+/* Contact section styles */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1a202c;
+    padding: 1rem;
+  }
+
+  nav ul.flex {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Icon styles */
 .detail i,
 .skill i {
-  @apply text-3xl text-[var(--primary-color)] mb-4;
-  /* This makes icons large, colored, and adds some bottom margin */
+  font-size: 1.875rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 /* Header styles */
 header {
-  @apply bg-gray-800 text-white py-4 fixed w-full top-0 z-50;
-  /* This creates a dark, full-width header that stays at the top of the page */
+  background-color: #1f2937;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50;
 }
 
 /* Navigation styles */
 nav ul {
-  @apply flex justify-center;
-  /* This centers the navigation items horizontally */
+  display: flex;
+  justify-content: center;
 }
 
 nav ul li {
-  @apply mx-4;
-  /* This adds horizontal spacing between navigation items */
+  margin: 0 1rem;
 }
 
 nav ul li a {
-  @apply font-medium py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-white/10;
-  /* This styles navigation links with padding, rounded corners, and a hover effect */
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Footer styles */
 footer {
-  @apply bg-gray-800 text-white text-center py-4 mt-auto;
-  /* This creates a dark footer that sticks to the bottom of the page */
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
 }
 
-/* EoF */
+/* Dark mode media query */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #242424;
+    --text-color: rgba(255, 255, 255, 0.87);
+  }
+}

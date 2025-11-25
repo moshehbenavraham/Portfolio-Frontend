@@ -94,12 +94,6 @@
         </ul>
       </nav>
     </div>
-    <!-- 
-      This is a placeholder element with the id "app". 
-      It acts as a container where JavaScript can dynamically insert content into the page. 
-      The JavaScript file will use this element to display additional HTML content when the page loads.
-    -->
-    <div id="app"></div>
 
   </header>
 
@@ -306,8 +300,11 @@
     </div>
   </footer>
 
-  <script type="module" src="/src/main.js"></script>
-  <!-- Link to the JavaScript file for dynamic functionality -->
+  <!-- React root element -->
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.tsx"></script>
+  <!-- Link to the React entry point -->
 </body>
 
 </html>
