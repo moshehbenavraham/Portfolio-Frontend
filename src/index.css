@@ -428,3 +428,61 @@ footer {
     --text-color: rgba(255, 255, 255, 0.87);
   }
 }
+
+/* Spotlight animation for Hero section */
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}
+
+/* Loader spinner for Spline fallback */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--primary-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion preferences - disable animations for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential interactive feedback but disable motion */
+  .btn:hover,
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .detail:hover,
+  .skill:hover,
+  .project:hover {
+    transform: none !important;
+  }
+}

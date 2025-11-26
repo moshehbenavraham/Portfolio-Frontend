@@ -1,312 +1,48 @@
 <!DOCTYPE html>
-<!-- This declaration tells the browser that this is an HTML5 document -->
-
 <html lang="en">
-<!-- The root element of the HTML page, with 'lang' attribute specifying English language -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Max Gibson - AI & Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Max Gibson, an innovative tech entrepreneur and AI developer specializing in web services and AI solutions."
+    />
 
-<head>
-  <!-- The head section contains meta information about the document and links to external resources -->
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Max Gibson" />
+    <meta
+      name="keywords"
+      content="AI developer, web developer, full stack, automation, AI solutions, web services, tech entrepreneur"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
 
-  <meta charset="UTF-8" />
-  <!-- Specifies the character encoding for the HTML document (UTF-8 is a universal character set) -->
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Max Gibson - AI & Web Developer" />
+    <meta
+      property="og:description"
+      content="Innovative tech entrepreneur specializing in AI solutions and web services."
+    />
+    <meta property="og:image" content="/profile.png" />
+    <meta property="og:site_name" content="Max Gibson Portfolio" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Ensures proper rendering on mobile devices by setting the viewport -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Max Gibson - AI & Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Innovative tech entrepreneur specializing in AI solutions and web services."
+    />
+    <meta name="twitter:image" content="/profile.png" />
 
-  <title>Max Gibson - AI & Web Developer Portfolio</title>
-  <!-- Sets the title of the webpage, which appears in the browser tab -->
-
-  <meta name="description"
-    content="Portfolio of Max Gibson, an innovative tech entrepreneur and AI developer specializing in web services and AI solutions." />
-  <!-- Provides a brief description of the page content, useful for search engines -->
-
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <!-- Sets the favicon (small icon in the browser tab) for the website -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" defer></script>
-  <!-- Includes the Font Awesome icon library, with 'defer' attribute to load it after the HTML is parsed -->
-</head>
-
-<!-- The body tag contains all visible content of the webpage -->
-
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
-  <!-- Classes here set background and text colors for light and dark modes -->
-
-  <header class="bg-gray-800 text-white py-4 fixed w-full top-0 z-50">
-    <!-- 
-      This is the header section of the webpage.
-      bg-gray-800: Sets a dark background color
-      text-white: Makes the text color white
-      py-4: Adds padding to the top and bottom
-      fixed: Keeps the header fixed at the top of the page when scrolling
-      w-full: Makes the header span the full width of the screen
-      top-0: Positions the header at the very top
-      z-50: Ensures the header stays on top of other elements
-    -->
-    <div class="container mx-auto px-4">
-      <!-- 
-        This container helps control the width and horizontal positioning of the content.
-        mx-auto: Centers the container horizontally
-        px-4: Adds padding to the left and right sides
-      -->
-      <nav class="flex justify-between items-center">
-        <!-- 
-          The navigation bar, now using flexbox for layout.
-          flex: Enables flexbox layout
-          justify-between: Spreads out the child elements, pushing them to the edges
-          items-center: Vertically centers the child elements
-        -->
-        <button class="md:hidden" id="mobile-menu-button" aria-label="Toggle mobile menu">
-          <!-- 
-            This button is for the mobile menu, only visible on smaller screens.
-            md:hidden: Hides the button on medium-sized screens and larger
-          -->
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          <!-- This SVG creates a "hamburger" icon for the mobile menu button -->
-        </button>
-        <ul class="hidden md:flex justify-center space-x-6">
-          <!-- 
-            The list of navigation items.
-            hidden: Hides the list by default (on mobile)
-            md:flex: Shows the list as a flex container on medium-sized screens and larger
-            justify-center: Centers the list items horizontally
-            space-x-6: Adds horizontal spacing between list items
-          -->
-          <li><a href="#home"
-              class="hover:bg-white hover:bg-opacity-10 py-2 px-4 rounded transition duration-300">Home</a></li>
-          <li><a href="#about"
-              class="hover:bg-white hover:bg-opacity-10 py-2 px-4 rounded transition duration-300">About</a></li>
-          <li><a href="#skills"
-              class="hover:bg-white hover:bg-opacity-10 py-2 px-4 rounded transition duration-300">Skills</a></li>
-          <li><a href="#projects"
-              class="hover:bg-white hover:bg-opacity-10 py-2 px-4 rounded transition duration-300">Projects</a></li>
-          <li><a href="#contact"
-              class="hover:bg-white hover:bg-opacity-10 py-2 px-4 rounded transition duration-300">Contact</a></li>
-          <!-- 
-            Each list item contains a link to a section of the page.
-            hover:bg-white hover:bg-opacity-10: Creates a slight white background on hover
-            py-2 px-4: Adds padding around the link text
-            rounded: Rounds the corners of the hover effect
-            transition duration-300: Adds a smooth transition effect for hover
-          -->
-        </ul>
-      </nav>
-    </div>
-
-  </header>
-
-  <main class="pt-16">
-    <!-- Main content area, with top padding to prevent content from being hidden under the fixed header -->
-
-    <section id="home" class="hero text-center py-24 bg-[var(--primary-color)] text-white">
-      <!-- Home section with hero styling -->
-      <div class="container mx-auto px-4">
-        <!-- Container for centering content -->
-        <h1 class="text-5xl mb-2">Max Gibson</h1>
-        <!-- Main heading (name) -->
-        <h2 class="text-3xl mb-4">AI & Web Developer</h2>
-        <!-- Subheading (job title) -->
-        <p class="text-xl mb-8">Innovative tech entrepreneur specializing in AI solutions and web services</p>
-        <!-- Brief description -->
-        <img src="/profile.png" alt="Professional headshot of Max Gibson, AI & Web Developer"
-          class="profile-pic w-48 h-48 rounded-full mx-auto my-8 border-4 border-white shadow-lg">
-        <!-- Profile picture -->
-        <div class="mt-8">
-          <!-- Container for buttons -->
-          <a href="#projects" class="btn btn-primary mr-4">View My Work</a>
-          <!-- Button linking to projects section -->
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-          <!-- Button linking to contact section -->
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="py-16 bg-white dark:bg-gray-800">
-      <!-- About section with padding and background color (light and dark mode) -->
-      <div class="container mx-auto px-4">
-        <!-- Container for centering content and adding horizontal padding -->
-        <h2 class="text-3xl font-semibold mb-8">About Me</h2>
-        <!-- Section heading -->
-        <p class="text-lg mb-8">With over 14 years of experience in web services and AI solutions, I bring innovation
-          and strategic thinking to every project. My expertise spans AI development, full-stack web development, and
-          organizational leadership.</p>
-        <!-- Paragraph describing professional experience -->
-        <div class="about-details">
-          <!-- Container for detail boxes -->
-          <div class="detail">
-            <!-- Individual detail box -->
-            <i class="fas fa-globe text-4xl text-[var(--primary-color)] mb-4"></i>
-            <!-- Icon for languages (using Font Awesome) -->
-            <h3 class="text-xl font-semibold mb-2">Languages</h3>
-            <!-- Subheading for languages -->
-            <p>Hebrew, English</p>
-            <!-- List of languages -->
-          </div>
-          <div class="detail">
-            <!-- Another detail box for education -->
-            <i class="fas fa-graduation-cap text-4xl text-[var(--primary-color)] mb-4"></i>
-            <!-- Icon for education -->
-            <h3 class="text-xl font-semibold mb-2">Education</h3>
-            <!-- Subheading for education -->
-            <p>B.S. in Computer Science, San Diego State University</p>
-            <!-- Education details -->
-          </div>
-          <div class="detail">
-            <!-- Detail box for certifications -->
-            <i class="fas fa-certificate text-4xl text-[var(--primary-color)] mb-4"></i>
-            <!-- Icon for certifications -->
-            <h3 class="text-xl font-semibold mb-2">Certifications</h3>
-            <!-- Subheading for certifications -->
-            <ul class="list-disc pl-5">
-              <!-- Unordered list with disc-style bullets and left padding -->
-              <li>Generative AI: Introduction and Applications</li>
-              <!-- List item for a certification -->
-              <li>Introduction to Artificial Intelligence (AI)</li>
-              <!-- Another list item for a certification -->
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="py-16 bg-gray-100 dark:bg-gray-900">
-      <!-- Skills section with padding and background color (light and dark mode) -->
-      <div class="container mx-auto px-4">
-        <!-- Container for centering content and adding horizontal padding -->
-        <h2 class="text-3xl font-semibold mb-8">Core Competencies</h2>
-        <!-- Section heading for skills -->
-        <div class="skills-grid">
-          <!-- Grid container for skill items -->
-          <div class="skill">
-            <!-- Individual skill item -->
-            <i class="fas fa-robot text-4xl text-[var(--primary-color)] mb-4"></i>
-            <!-- Icon for AI & Automation (using Font Awesome) -->
-            <h3 class="text-xl font-semibold">AI & Automation</h3>
-            <!-- Skill title -->
-          </div>
-          <div class="skill">
-            <!-- Another skill item -->
-            <i class="fas fa-code text-4xl text-[var(--primary-color)] mb-4"></i>
-            <!-- Icon for Full Stack Development -->
-            <h3 class="text-xl font-semibold">Full Stack Development</h3>
-            <!-- Skill title -->
-          </div>
-          <!-- More skill items follow the same pattern -->
-          <div class="skill">
-            <i class="fas fa-brain text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">AI Developer</h3>
-          </div>
-          <div class="skill">
-            <i class="fas fa-paint-brush text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">Web Design</h3>
-          </div>
-          <div class="skill">
-            <i class="fas fa-server text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">Web Hosting</h3>
-          </div>
-          <div class="skill">
-            <i class="fas fa-users text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">Organizational Leadership</h3>
-          </div>
-          <div class="skill">
-            <i class="fas fa-chart-line text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">Strategic Thinking</h3>
-          </div>
-          <div class="skill">
-            <i class="fas fa-hand-holding-usd text-4xl text-[var(--primary-color)] mb-4"></i>
-            <h3 class="text-xl font-semibold">Fundraising</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="py-16 bg-white dark:bg-gray-800">
-      <!-- Projects section with padding and background color (light and dark mode) -->
-      <div class="container mx-auto px-4">
-        <!-- Container for centering content and adding horizontal padding -->
-        <h2 class="text-3xl font-semibold mb-8 pb-2 border-b-2 border-[var(--primary-color)] inline-block">Featured
-          Projects</h2>
-        <!-- Section heading with underline effect -->
-        <div class="project-grid">
-          <!-- Grid container for project items -->
-          <div class="project">
-            <!-- Individual project item -->
-            <img src="/project1.webp" alt="AI-Driven Web Application" class="project-image w-full h-48 object-cover">
-            <!-- Project image with full width and fixed height -->
-            <div class="project-content p-4 flex-grow flex flex-col">
-              <!-- Project details container -->
-              <h3 class="text-xl font-semibold mb-2">AI-Driven Web Application</h3>
-              <!-- Project title -->
-              <p class="mb-4">A cutting-edge web application leveraging AI for personalized user experiences.</p>
-              <!-- Project description -->
-              <a href="#contact" class="btn btn-primary mt-auto">Get in Touch</a>
-              <!-- "Get in Touch" button, positioned at the bottom of the container -->
-            </div>
-          </div>
-          <!-- Similar structure for the second project -->
-          <div class="project">
-            <img src="/project2.webp" alt="Automated Workflow System" class="project-image w-full h-48 object-cover">
-            <div class="project-content p-4 flex-grow flex flex-col">
-              <h3 class="text-xl font-semibold mb-2">Automated Workflow System</h3>
-              <p class="mb-4">An efficient system designed to streamline business processes using AI and automation.</p>
-              <a href="#contact" class="btn btn-primary mt-auto">Get in Touch</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-900">
-      <!-- Contact section with padding and background color (light and dark mode) -->
-      <div class="container mx-auto px-4">
-        <!-- Container for centering content and adding horizontal padding -->
-        <h2 class="text-3xl font-semibold mb-8">Get in Touch</h2>
-        <!-- Section heading -->
-        <p class="text-lg mb-8">Interested in collaborating or have a project in mind? Let's connect!</p>
-        <!-- Invitation text -->
-        <div class="contact-info">
-          <!-- Container for contact information -->
-          <p class="mb-4"><i class="fas fa-phone mr-2 text-[var(--primary-color)]"></i> +1 (623) 263 1967</p>
-          <!-- Phone number with icon -->
-          <p class="mb-4"><i class="fas fa-envelope mr-2 text-[var(--primary-color)]"></i> Max@ApexWebServices.com</p>
-          <!-- Email address with icon -->
-          <p class="mb-4"><i class="fab fa-linkedin mr-2 text-[var(--primary-color)]"></i> <a
-              href="https://www.linkedin.com/in/moshehbenavraham" class="hover:text-[var(--primary-color)]">LinkedIn
-              Profile</a></p>
-          <!-- LinkedIn profile link with icon -->
-          <p class="mb-4"><i class="fas fa-globe mr-2 text-[var(--primary-color)]"></i> <a
-              href="https://ApexWebServices.com" class="hover:text-[var(--primary-color)]">ApexWebServices.com</a></p>
-          <!-- Website link with icon -->
-
-          <!-- Contact form with email delivery handled by FormSpree -->
-          <!-- The form will be dynamically injected by JavaScript from main.js -->
-          <div id="contact-form"></div>
-          <!-- End of the contact form -->
-        </div> <!-- End of the contact info -->
-      </div>
-    </section>
-
-  </main>
-  <!-- End of the main content area -->
-
-  <footer class="bg-gray-800 text-white py-4">
-    <!-- Footer section with dark background -->
-    <div class="container text-center">
-      <!-- Centered container for footer content -->
-      <p>&copy; 2024 Max Gibson. All rights reserved.</p>
-      <!-- Copyright notice -->
-    </div>
-  </footer>
-
-  <!-- React root element -->
-  <div id="root"></div>
-
-  <script type="module" src="/src/main.tsx"></script>
-  <!-- Link to the React entry point -->
-</body>
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/profile.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
-
-<!-- EoF -->
