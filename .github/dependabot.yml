@@ -7,3 +7,16 @@ updates:
       interval: "weekly"
     target-branch: "main"
     open-pull-requests-limit: 10
+    groups:
+      # react and react-dom must move in lockstep (mismatch => React error #527)
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      # vite majors need a matching @vitejs/plugin-react (peer range)
+      vite:
+        patterns:
+          - "vite"
+          - "@vitejs/*"
